@@ -49,14 +49,20 @@
                 </li>
                 @auth()
                 <li class="nav-item dropdown">
+                    <a class="nav-link" data-bs-toggle="offcanvas" href="#sidebar" role="button"
+                        aria-controls="sidebar">
+                        {{auth()->user()->name}}
+                    </a>
+                </li>
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {{auth()->user()->name}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
-                        <li><a class="dropdown-item" href="{{ url('/logout') }}">logout</a></li>
-                    </ul>
-                </li>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Profil</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/logout') }}">logout</a></li>
+                </ul>
+                </li> --}}
                 @endauth
             </ul>
             @guest

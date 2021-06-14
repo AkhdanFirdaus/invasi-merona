@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.home')
+
 
 @section('content')
 <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
@@ -33,14 +34,6 @@
         </div>
     </div>
 </div>
-<ul class="nav justify-content-end my-3 bg-white">
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#formVaksin">Tambah Vaksin</a>
-    </li>
-</ul>
 
 @include('components.form-vaksin')
 @endsection

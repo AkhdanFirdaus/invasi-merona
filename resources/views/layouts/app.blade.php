@@ -21,11 +21,11 @@
 </head>
 
 <body>
+    @auth()
+    @include('components.sidebar')
+    @endauth
     <div class="container my-3">
-        @if(url()->current() !== url('/login'))
-        @include('components.navbar')
-        @endif
-        @yield('content')
+        @yield('layout-content')
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('script')

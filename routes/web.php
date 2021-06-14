@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RumahSakitController;
+use App\Http\Controllers\VaksinController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,34 +17,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('logout', [AuthController::class, 'logout']);
-});
+Route::view('/', 'pages.home.welcome');
 
-Route::get('/', function () {
-    return view('pages.welcome');
-});
+Route::view('/artikel', 'pages.home.artikel');
 
-Route::get('/artikel', function () {
-    return view('pages.artikel');
-});
+Route::get('/artikel/{id}', [ArtikelController::class, 'show']);
 
-Route::get('/artikel/{id}', [ArtikelController::class, 'detail']);
+Route::view('/covid', 'pages.home.covid');
 
-Route::get('/covid', function () {
-    return view('pages.covid');
-});
+Route::view('/vaksin', 'pages.home.vaksin');
 
-Route::get('/vaksin', function () {
-    return view('pages.vaksin');
-});
+Route::view('/tentang-kami', 'pages.home.tentang-kami');
 
-Route::get('/tentang-kami', function () {
-    return view('pages.tentang-kami');
-});
-
-Route::get('/login', function () {
-    return view('pages.auth.login');
-});
+Route::view('/login', 'pages.auth.login')->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::view('daftar', 'pages.home.daftar');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('logout', [AuthController::class, 'logout']);
+    Route::view('dashboard', 'layouts.admin');
+});
+
+Route::prefix('dashboard')->group(function () {
+    Route::resource('artikel', ArtikelController::class)->middleware('adminApp', 'adminRS');
+    Route::view('covid', 'pages.dashboard.covid.index');
+    Route::resource('vaksin', VaksinController::class)->middleware('adminApp', 'adminRS');
+});
+
+Route::get('/rumah-sakit', [RumahSakitController::class, 'index'])->middleware('adminApp', 'adminRS');
+Route::resource('/rumah-sakit', RumahSakitController::class)->except([])->middleware('adminRS');

@@ -1,29 +1,29 @@
 @php
 $teams = [
-    [
-        'name' => 'Akhdan MF',
-        'nim' => '1197050010'
-    ],
-    [
-        'name' => 'Aliman',
-        'nim' => '1197050010'
-    ],
-    [
-        'name' => 'Fakhri',
-        'nim' => '1197050010'
-    ],
-    [
-        'name' => 'Haruna',
-        'nim' => '1197050010'
-    ],
-    [
-        'name' => 'Reyhan',
-        'nim' => '1197050010'
-    ],
+[
+'name' => 'Akhdan MF',
+'nim' => '1197050010'
+],
+[
+'name' => 'Aliman',
+'nim' => '1197050010'
+],
+[
+'name' => 'Fakhri',
+'nim' => '1197050010'
+],
+[
+'name' => 'Haruna',
+'nim' => '1197050010'
+],
+[
+'name' => 'Reyhan',
+'nim' => '1197050010'
+],
 ]
 @endphp
 
-@extends('layouts.app')
+@extends('layouts.home')
 @section('content')
 <div class="p-5 mb-4 bg-white rounded-3 my-3">
     <div class="container-fluid py-5">
@@ -51,7 +51,7 @@ $teams = [
             @foreach ($teams as $team)
             <div class="col">
                 <div class="card"">
-                    <img src="https://picsum.photos/200?grayscale" class="card-img-top" alt="...">
+                    <img src=" https://picsum.photos/200?grayscale" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="card-title">{{ $team['name'] }}</div>
                         <div class="card-text">{{ $team['nim'] }}</div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 @section('content')
 <div class="row row-cols-1 row-cols-md-2 g-4 my-3">
     <div class="col">
@@ -29,7 +29,8 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h2 class="card-title"><i class="fas fa-info-circle"></i> Informasi Covid</h2>
-                <p class="card-title small">Dimuat pada: <div id="load-time"></div></p>
+                <p class="card-title small">Dimuat pada: <div id="load-time"></div>
+                </p>
                 <div class="row row-cols-1 row-cols-md-2 g-2 my-3">
                     <div class="col">
                         <div class="card bg-warning">
@@ -95,8 +96,8 @@
 
 @include('components.form-daftar')
 @push('script')
-    <script>
-        axios.get('/api/covid-summary').then(function(response) {
+<script>
+    axios.get('/api/covid-summary').then(function(response) {
             console.log(response.data);
             document.getElementById('covid-positif').innerHTML = response.data[0]['positif'];
             document.getElementById('covid-sembuh').innerHTML = response.data[0]['sembuh'];
@@ -104,6 +105,6 @@
             document.getElementById('covid-dirawat').innerHTML = response.data[0]['dirawat'];
             document.getElementById('load-time').innerHTML = Date();
         });
-    </script>
+</script>
 @endpush
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 <div class="p-5 mb-4 my-3">
@@ -17,8 +17,7 @@
     </div>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4 my-3">
-    @for ($i = 1; $i <= 6; $i++)
-    <div class="col">
+    @for ($i = 1; $i <= 6; $i++) <div class="col">
         <div class="card">
             <img src="https://picsum.photos/seed/picsum/400/200" class="card-img-top" alt="img">
             <div class="card-body">
@@ -27,7 +26,7 @@
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
-    </div>
-    @endfor
+</div>
+@endfor
 </div>
 @endsection

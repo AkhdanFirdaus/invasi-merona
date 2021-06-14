@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artikel;
 use Illuminate\Http\Request;
 
-class ArtikelController extends Controller
+class RumahSakitController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('pages.dashboard.artikel.index');
+        //
     }
 
     /**
@@ -19,7 +23,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.artikel.add');
+        //
     }
 
     /**
@@ -41,7 +45,7 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        return view('pages.home.artikel-detail', ['id' => $id]);
+        //
     }
 
     /**
@@ -52,7 +56,7 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.dashboard.artikel.add');
+        //
     }
 
     /**
