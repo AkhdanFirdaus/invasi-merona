@@ -35,5 +35,16 @@
     </div>
 </div>
 
+<div class="row row-cols-1 row-cols-md-3 g-4 my-3">
+    @for ($i = 1; $i <= 6; $i++) <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vaksin {{ $i }}</h5>
+                <a href="{{ url("/artikel/$i") }}" class="card-link btn btn-primary stretched-link">See Detail</a>
+            </div>
+        </div>
+</div>
+@endfor
+
 @include('components.form-vaksin')
 @endsection

@@ -5,10 +5,9 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h2 class="card-title">Daftar Vaksin</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente,
-                    distinctio.</p>
-                <button data-bs-toggle="modal" data-bs-target="#formDaftar" class="btn btn-primary">Daftar
-                    Sekarang</button>
+                <p class="card-text">Daftar vaksin sebagai langkah pencegahan penyebaran virus Covid 19</p>
+                <a href="{{ url('/daftar') }}" class="btn btn-primary">Daftar
+                    Sekarang</a>
             </div>
         </div>
     </div>
@@ -16,8 +15,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h2 class="card-title">Cek Jadwal</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente,
-                    distinctio.</p>
+                <p class="card-text">Lihat jadwal pendaftaran Anda.</p>
                 <div class="input-group">
                     <input type="text" class="form-control" />
                     <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Cari</button>
@@ -71,7 +69,7 @@
     <div class="col">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h2 class="card-title">Informasi Vaksin</h2>
+                <h2 class="card-title">Informasi</h2>
                 <ul class="list-group my-3">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div class="me-auto">Artikel1</div>
@@ -87,14 +85,14 @@
                     </li>
                 </ul>
                 <div class="d-grid">
-                    <a href="{{ url('/article') }}" class="btn btn-primary">Lihat Selengkapnya</a>
+                    <a href="{{ url('/artikel') }}" class="btn btn-primary">Lihat Selengkapnya</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@include('components.form-daftar')
+{{-- @include('components.form-daftar') --}}
 @push('script')
 <script>
     axios.get('/api/covid-summary').then(function(response) {

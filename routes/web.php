@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\RumahSakitController;
 use App\Http\Controllers\VaksinController;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,8 @@ Route::view('/login', 'pages.auth.login')->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::view('daftar', 'pages.home.daftar');
+Route::view('/daftar', 'pages.home.daftar');
+Route::view('/daftar/berhasil', 'pages.home.daftar-berhasil');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);

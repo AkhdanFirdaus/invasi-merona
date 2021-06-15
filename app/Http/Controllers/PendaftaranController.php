@@ -34,7 +34,7 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('pages.home.daftar-berhasil');
     }
 
     /**

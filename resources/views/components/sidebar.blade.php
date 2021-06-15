@@ -5,8 +5,8 @@
     </div>
     <div class="offcanvas-body">
         <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
-            etc.
+            <img src="{{ asset('img/coollogo.png') }}" alt="Logo" class="img-fluid">
+            <p>Kenali penyakit sebelum dikenai penyakit</p>
         </div>
         <hr />
         <ul class="list-unstyled ps-0">
@@ -137,7 +137,7 @@
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
                         <li class="mb-1"><a href="#" class="btn btn-light">Profile</a></li>
                         <li class="mb-1"><a href="#" class="btn btn-light my-2">Settings</a></li>
-                        <li class="mb-1"><a href="{{ url('/logout') }}" class="link-dark rounded">Logout</a>
+                        <li class="mb-1"><a href="{{ url('/logout') }}" class="btn btn-danger">Logout</a>
                         </li>
                     </ul>
                 </div>

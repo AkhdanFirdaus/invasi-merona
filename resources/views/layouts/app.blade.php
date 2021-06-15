@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="shortcut icon" type="image/jpg" href="{{ asset('img/icon.png') }}" />
     <style>
         body {
             background-color: #f5f5f5;
