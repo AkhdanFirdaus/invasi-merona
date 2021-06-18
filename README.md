@@ -11,6 +11,7 @@ Invasi Merona adalah sistem perangkat lunak informasi vaksin Indonesia melawan c
 - Reyhan Afrizal 			    1197050114
 
 # RPL-B, Informatika UIN Sunan Gunung Djati Bandung
+### Mata Kuliah Rekayasa Perangkat Lunak
 ### Dosen Pengampu : Ichsan Taufik S.T.,M.T
 
 # Beberapa Screenshoots Aplikasi
