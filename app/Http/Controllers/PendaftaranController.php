@@ -20,13 +20,21 @@ class PendaftaranController extends Controller
     {
         $data = Pendaftaran::select(
             'pendaftarans.*',
-            'vaksins.*',
             'jadwal_pemeriksaans.*',
-            'users.*'
+            'rumah_sakits.id AS rs_id',
+            'rumah_sakits.name AS rs_nama',
+            'rumah_sakits.address AS rs_alamat',
+            'users.email AS rs_email',
+            'users.no_telp AS rs_no_telp',
+            'vaksins.id AS vaksin_id',
+            'vaksins.name AS vaksin_nama',
+            'vaksins.description AS vaksin_deskripsi',
         )
             ->join('vaksins', 'vaksins.id', '=', 'pendaftarans.vaksin_id')
-            ->join('jadwal_pemeriksaans', 'jadwal_pemeriksaans.id', '=', 'pendaftarans.jadwal_pemeriksaans.id')
-            ->join('users', 'users.id', 'pendaftarans.user_id')
+            ->join('jadwal_pemeriksaans', 'jadwal_pemeriksaans.id', '=', 'pendaftarans.jadwal_pemeriksaan_id')
+            ->join('jadwal_rumah_sakits', 'jadwal_rumah_sakits.id', '=', 'jadwal_pemeriksaans.jadwal_rumah_sakit_id')
+            ->join('rumah_sakits', 'rumah_sakits.id', '=', 'jadwal_rumah_sakits.rumah_sakit_id')
+            ->join('users', 'users.rumah_sakit_id', '=', 'rumah_sakits.id')
             ->get();
         return response()->json($data);
     }
@@ -68,7 +76,7 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.dashboard.pendaftaran.index');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\CovidController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\RumahSakitController;
 use App\Http\Controllers\VaksinController;
 use Illuminate\Http\Request;
@@ -31,3 +32,5 @@ Route::get('/vaksin-list', [VaksinController::class, 'datalist']);
 Route::get('/rumah-sakit-list', [RumahSakitController::class, 'datalist']);
 
 Route::post('/info-rs', [RumahSakitController::class, 'infors']);
+
+Route::get('/pendaftaran-list', [PendaftaranController::class, 'datalist']);

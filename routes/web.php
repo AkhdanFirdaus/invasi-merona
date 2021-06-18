@@ -35,7 +35,7 @@ Route::view('/login', 'pages.auth.login')->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/daftar', [PendaftaranController::class, 'daftar']);
+Route::get('/daftar', [PendaftaranController::class, 'daftar'])->name('daftar.index');
 Route::post('/daftar', [PendaftaranController::class, 'store'])->name('daftar.store');
 Route::get('/daftar/{nik}/berhasil', [PendaftaranController::class, 'daftarBerhasil'])->name('daftar.berhasil');
 
@@ -50,6 +50,7 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('artikel', ArtikelController::class)->middleware('app:1&2');
     Route::view('covid', 'pages.dashboard.covid.index');
     Route::resource('vaksin', VaksinController::class)->middleware('app:1&2');
+    Route::get('pendaftaran', [PendaftaranController::class, 'index'])->middleware('app:1&2')->name('pendaftaran.index');
 });
 
 Route::get('/rumah-sakit', [RumahSakitController::class, 'index'])->middleware('app:1&2')->name('rumah-sakit.index');
