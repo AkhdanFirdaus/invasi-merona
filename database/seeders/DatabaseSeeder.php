@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Artikel;
+use App\Models\JadwalRumahSakit;
 use App\Models\RumahSakit;
 use App\Models\User;
+use App\Models\Vaksin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -50,7 +53,33 @@ class DatabaseSeeder extends Seeder
         $user->no_telp = "0832134xxx";
         $user->address = "Jl. jalan aja jadiang nggak";
         $user->birth_date = \Carbon\Carbon::now()->subYears(20);
-        $user->role = 2;
+        $user->role = 3;
         $user->save();
+
+        $jadwalRS = new JadwalRumahSakit();
+        $jadwalRS->rumah_sakit_id = $rs->id;
+        $jadwalRS->start = 07;
+        $jadwalRS->end = 21;
+        $jadwalRS->day = "Minggu";
+        $jadwalRS->save();
+
+
+        $artikel = new Artikel();
+        $artikel->title = "Judul Pertama";
+        $artikel->content = "Konten Pertama";
+        $artikel->user_id = $adminApp->id;
+        $artikel->save();
+
+        $artikel2 = new Artikel();
+        $artikel2->title = "Judul Kedua";
+        $artikel2->content = "Konten Kedua";
+        $artikel2->user_id = $adminRS->id;
+        $artikel2->save();
+
+        $vaksin = new Vaksin();
+        $vaksin->name = "Vaksin Sinovack";
+        $vaksin->description = "Vaksin ini adalah vaksin";
+        $vaksin->user_id = $adminRS->id;
+        $vaksin->save();
     }
 }

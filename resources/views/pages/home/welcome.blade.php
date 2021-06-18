@@ -17,8 +17,8 @@
                 <h2 class="card-title">Cek Jadwal</h2>
                 <p class="card-text">Lihat jadwal pendaftaran Anda.</p>
                 <div class="input-group">
-                    <input type="text" class="form-control" />
-                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Cari</button>
+                    <input type="text" class="form-control" id="kode-daftar" />
+                    <button class="btn btn-outline-secondary" type="submit" id="cari-daftar">Cari</button>
                 </div>
             </div>
         </div>
@@ -71,18 +71,21 @@
             <div class="card-body">
                 <h2 class="card-title">Informasi</h2>
                 <ul class="list-group my-3">
+                    @if (count($artikels) > 0)
+                    @foreach ($artikels as $artikel)
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="me-auto">Artikel1</div>
-                        <a href="" class="btn btn-link">See</a>
+                        <div class="me-auto">
+                            <strong class="d-block">{{ $artikel->title }}</strong>
+                            <small>Author: {{ $artikel->name }}</small>
+                        </div>
+                        <a href="{{ url('/artikel', $artikel->id) }}" class="btn btn-link">See</a>
                     </li>
+                    @endforeach
+                    @else
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="me-auto">Artikel2</div>
-                        <a href="" class="btn btn-link">See</a>
+                        Tidak ada artikel
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="me-auto">Artikel3</div>
-                        <a href="" class="btn btn-link">See</a>
-                    </li>
+                    @endif
                 </ul>
                 <div class="d-grid">
                     <a href="{{ url('/artikel') }}" class="btn btn-primary">Lihat Selengkapnya</a>
@@ -103,6 +106,11 @@
             document.getElementById('covid-dirawat').innerHTML = response.data[0]['dirawat'];
             document.getElementById('load-time').innerHTML = Date();
         });
+
+    document.getElementById('cari-daftar').addEventListener('click', function() {
+        let kode = document.getElementById('kode-daftar').value;
+        window.location.href = `/daftar/${kode}/berhasil`;
+    })
 </script>
 @endpush
 @endsection

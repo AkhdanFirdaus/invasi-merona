@@ -14,7 +14,7 @@ class AddForeignKeyRumahsakitToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('rumah_sakit_id', 'FK_users_rs_id')->references('id')->on('rumah_sakits')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('rumah_sakit_id', 'FK_users_rs_id')->references('id')->on('rumah_sakits')->onUpdate('NO ACTION')->onDelete('CASCADE');
         });
     }
 

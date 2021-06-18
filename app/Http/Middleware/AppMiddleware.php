@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminAppMiddleware
+class AppMiddleware
 {
     /**
      * Handle an incoming request.
@@ -14,9 +14,10 @@ class AdminAppMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $roles)
     {
-        if ($request->user()->role != 2) {
+        $roles = explode("&", $roles);
+        if (!in_array($request->user()->role, $roles)) {
             return redirect()->back();
         }
         return $next($request);

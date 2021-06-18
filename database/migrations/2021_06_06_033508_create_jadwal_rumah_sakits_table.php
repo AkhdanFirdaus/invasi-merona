@@ -16,9 +16,9 @@ class CreateJadwalRumahSakitsTable extends Migration
         Schema::create('jadwal_rumah_sakits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rumah_sakit_id');
-            $table->date('date');
-            $table->time('start');
-            $table->time('end');
+            $table->integer('day');
+            $table->integer('start');
+            $table->integer('end');
             $table->timestamps();
         });
     }

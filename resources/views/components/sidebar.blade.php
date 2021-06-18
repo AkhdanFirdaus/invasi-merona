@@ -76,7 +76,7 @@
                                 btn-primary
                                 @else
                                 btn-light
-                                @endif" href="{{ url('/dashboard/vaksin') }}">Vaksin</a>
+                                @endif" href="{{ route('vaksin.index') }}">Vaksin</a>
                         </li>
                     </ul>
                 </div>
@@ -135,7 +135,7 @@
                 </button>
                 <div class="collapse mt-1" id="account-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                        <li class="mb-1"><a href="#" class="btn btn-light">Profile</a></li>
+                        <li class="mb-1"><a href="{{ url('/profil') }}" class="btn btn-light">Profile</a></li>
                         <li class="mb-1"><a href="#" class="btn btn-light my-2">Settings</a></li>
                         <li class="mb-1"><a href="{{ url('/logout') }}" class="btn btn-danger">Logout</a>
                         </li>

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@push('style')
+<link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
+@endpush
 @section('layout-content')
 <div class="d-flex justify-content-end">
     <a class="nav-link dropdown-toggle" data-bs-toggle="offcanvas" href="#sidebar" role="button"

@@ -1,2 +1,7 @@
 require('./bootstrap');
-require( 'datatables.net-bs5' )();
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+require('datatables.net-bs5');
+
+window.moment = require('moment');

@@ -4,19 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Vaksin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class VaksinController extends Controller
 {
-    public function buatVaksin(Request $request)
+    public function datalist()
     {
-        $vaksin = new Vaksin();
-        $vaksin->name = $request->name;
-        $vaksin->description = $request->description;
-        // $vaksin->userId = $request->user()->id;
-        $vaksin->userId = 1;
-        $vaksin->save();
-
-        return redirect()->back()->with(['message' => 'Sukses']);
+        $listvaksin = Vaksin::select('vaksins.*', DB::raw('users.name as user_name'), 'users.email')->join('users', 'users.id', '=', 'vaksins.user_id')->get();
+        return response()->json($listvaksin);
     }
 
     public function index()
@@ -42,7 +38,16 @@ class VaksinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vaksin = new Vaksin();
+        $vaksin->name = $request->name;
+        $vaksin->description = $request->description;
+        $vaksin->user_id = $request->user()->id;
+        if ($vaksin->save()) {
+            Session::flash('sukses', 'Sukses menambahkan vaksin');
+            return redirect()->route('vaksin.index');
+        }
+        Session::flash('gagal', 'Gagal menambahkan vaksin');
+        return redirect()->back();
     }
 
     /**
@@ -51,10 +56,10 @@ class VaksinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return view('pages.dashboard.vaksin.add');
-    }
+    // public function show($id)
+    // {
+    //     return view('pages.dashboard.vaksin');
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -64,7 +69,8 @@ class VaksinController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.dashboard.vaksin.index');
+        $vaksin = Vaksin::find($id);
+        return view('pages.dashboard.vaksin.add', ['vaksin' => $vaksin]);
     }
 
     /**
@@ -76,7 +82,16 @@ class VaksinController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vaksin = Vaksin::find($id);
+        $vaksin->name = $request->name;
+        $vaksin->description = $request->description;
+        $vaksin->user_id = $request->user()->id;
+        if ($vaksin->save()) {
+            Session::flash('sukses', 'Sukses menambahkan vaksin');
+            return redirect()->route('vaksin.index');
+        }
+        Session::flash('gagal', 'Gagal menambahkan vaksin');
+        return redirect()->back();
     }
 
     /**
@@ -87,6 +102,10 @@ class VaksinController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $artikel = Vaksin::find($id);
+
+        $artikel->delete();
+        Session::flash('sukses', 'Sukses menghapus vaksin');
+        return redirect()->route('vaksin.index');
     }
 }

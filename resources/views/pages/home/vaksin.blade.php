@@ -12,7 +12,7 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <h5>Jenis Vaksin</h5>
-                        <h1>20+</h1>
+                        <h1>{{ count($vaksins) }}</h1>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <h5>Jumlah Tervaksin</h5>
-                        <h1>20+</h1>
+                        <h1>10</h1>
                     </div>
                 </div>
             </div>
@@ -35,16 +35,30 @@
     </div>
 </div>
 
+<hr class="my-4 border-top">
+<h3>Daftar Vaksin</h3>
+
 <div class="row row-cols-1 row-cols-md-3 g-4 my-3">
-    @for ($i = 1; $i <= 6; $i++) <div class="col">
+    @if (count($vaksins) > 0)
+    @foreach ($vaksins as $vaksin)
+    <div class="col">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Vaksin {{ $i }}</h5>
-                <a href="{{ url("/artikel/$i") }}" class="card-link btn btn-primary stretched-link">See Detail</a>
+                <h5 class="card-title">{{ $vaksin->name }}</h5>
+                <p class="card-text">{{ $vaksin->description }}</p>
             </div>
         </div>
-</div>
-@endfor
+    </div>
+    @endforeach
+    @else
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tidak ada data vaksin</h5>
+            </div>
+        </div>
+    </div>
+    @endif
 
-@include('components.form-vaksin')
-@endsection
+    @include('components.form-vaksin')
+    @endsection

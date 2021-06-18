@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class ArtikelController extends Controller
 {
+    public function datalist()
+    {
+        // SELECT * FROM artikel INNER JOIN users ON users.id = artikel.user_id
+        $listArtikel = Artikel::select('artikels.*', 'users.name', 'users.email')->join('users', 'users.id', '=', 'artikels.user_id')->get();
+        return response()->json($listArtikel);
+    }
+
     public function index()
     {
         return view('pages.dashboard.artikel.index');
@@ -30,7 +39,17 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $artikel = new Artikel();
+        $artikel->title = $request->title;
+        $artikel->content = $request->content;
+        $artikel->user_id = $request->user()->id;
+
+        if ($artikel->save()) {
+            Session::flash('sukses', 'Sukses menambahkan artikel');
+            return redirect()->route('artikel.index');
+        }
+        Session::flash('gagal', 'Gagal menambahkan artikel');
+        return redirect()->back();
     }
 
     /**
@@ -41,7 +60,8 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        return view('pages.home.artikel-detail', ['id' => $id]);
+        $artikel = Artikel::find($id);
+        return view('pages.home.artikel-detail', ['artikel' => $artikel]);
     }
 
     /**
@@ -52,7 +72,8 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.dashboard.artikel.add');
+        $artikel = Artikel::find($id);
+        return view('pages.dashboard.artikel.add', ['artikel' => $artikel]);
     }
 
     /**
@@ -64,7 +85,16 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $artikel = Artikel::find($id);
+        $artikel->title = $request->title;
+        $artikel->content = $request->content;
+        $artikel->user_id = $request->user()->id;
+        if ($artikel->save()) {
+            Session::flash('sukses', 'Sukses mengedit artikel');
+            return redirect()->route('artikel.index');
+        }
+        Session::flash('gagal', 'Gagal mengedit artikel');
+        return redirect()->back();
     }
 
     /**
@@ -75,6 +105,9 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $artikel = Artikel::find($id);
+        $artikel->delete();
+        Session::flash('sukses', 'Sukses menghapus artikel');
+        return redirect()->route('artikel.index');
     }
 }

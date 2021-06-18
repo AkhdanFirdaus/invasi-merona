@@ -49,7 +49,7 @@
                 </li>
                 @auth()
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-bs-toggle="offcanvas" href="#sidebar" role="button"
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="offcanvas" href="#sidebar" role="button"
                         aria-controls="sidebar">
                         {{auth()->user()->name}}
                     </a>

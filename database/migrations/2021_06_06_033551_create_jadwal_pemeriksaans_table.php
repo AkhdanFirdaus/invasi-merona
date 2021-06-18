@@ -17,8 +17,8 @@ class CreateJadwalPemeriksaansTable extends Migration
             $table->id();
             $table->foreignId('jadwal_rumah_sakit_id');
             $table->date('date');
-            $table->time('start');
-            $table->time('end');
+            $table->int('start');
+            $table->int('end');
             $table->timestamps();
         });
     }

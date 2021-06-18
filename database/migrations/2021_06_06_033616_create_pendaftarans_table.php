@@ -15,7 +15,7 @@ class CreatePendaftaransTable extends Migration
     {
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->foreignId('jadwal_pemeriksaan_id');
             $table->foreignId('vaksin_id');
             $table->string('name');

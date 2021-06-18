@@ -15,10 +15,10 @@
                         <div class="card-body">
                             <h6 class="card-title">Data diri</h6>
                             <ul class="list-unstyled">
-                                <li>Nama</li>
-                                <li>Nik</li>
-                                <li>Gender</li>
-                                <li>Alamat</li>
+                                <li>Nama : <strong>{{ $data->name }}</strong></li>
+                                <li>Nik : <strong>{{ $data->nik }}</strong></li>
+                                <li>Gender : <strong>{{ $data->gender == 1 ? "Laki-laki" : "Wanita" }}</strong></li>
+                                <li>Alamat : <strong>{{ $data->address }}</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -26,10 +26,11 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Data diri</h6>
+                            <h6 class="card-title">Jenis</h6>
                             <ul class="list-unstyled">
-                                <li>Kode Pendaftaran</li>
-                                <li>Tipe Vaksin</li>
+                                <li>Kode Pendaftaran(NIK) : <strong>{{ $data->nik }}</strong></li>
+                                <li>Nama Vaksin : <strong>{{ $data->vaksin_nama }}</strong></li>
+                                <li>Deskripsi Vaksin : <strong>{{ $data->vaksin_deskripsi }}</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -37,10 +38,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
+                            <h6 class="card-title">Jadwal</h6>
                             <ul class="list-unstyled">
-                                <li>Rumah Sakit</li>
-                                <li>Alamat RS</li>
-                                <li>Jadwal</li>
+                                <li>Rumah Sakit : <strong>{{ $data->rs_name }}</strong></li>
+                                <li>Alamat RS : <strong>{{ $data->rs_alamat }}</strong></li>
+                                <li>Tanggal : <strong>{{ $data->date }}</strong></li>
+                                <li>Jam : <strong>{{ $data->start }}</strong></li>
+                                <li>Selesai : <strong>{{ $data->end }}</strong></li>
                             </ul>
                         </div>
                     </div>

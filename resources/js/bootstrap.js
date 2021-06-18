@@ -2,6 +2,8 @@ window._ = require('lodash');
 
 import "bootstrap";
 
+window.bootstrap = require('bootstrap');
+
 import Litepicker from 'litepicker';
 
 window.LitePicker = Litepicker;
