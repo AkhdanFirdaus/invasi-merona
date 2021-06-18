@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## About Invasi Merona
+Invasi Merona adalah sistem perangkat lunak informasi vaksin Indonesia melawan corona untuk mendata dan memberikan informasi mengenai vaksin covid19 dalam skala nasional. Dalam sistem perangkat lunak ini pengguna dapat melakukan reservasi untuk melakukan vaksin bahkan mengetahui mengenai perkembangan virus covid 19 ini beserta perkembangan vaksin untuk mencegahnya
+
+## TIM
+- Akhdan Musyaffa Firdaus 		1197050010 
+- Aliman Triyas Farid			1197050013 
+- Fakhri Faishal Rochdiana 		1197050040 
+- Haruna Elfathin 			    1197050048 
+- Reyhan Afrizal 			    1197050114
+
+#RPL-B, Informatika UIN Sunan Gunung Djati Bandung
+Dosen Pengampu : Ichsan Taufik S.T.,M.T
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
