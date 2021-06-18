@@ -1,3 +1,19 @@
+![Invasi Merona](./public/img/coollogo.png)
+
+## About Invasi Merona
+Invasi Merona adalah sistem perangkat lunak informasi vaksin Indonesia melawan corona untuk mendata dan memberikan informasi mengenai vaksin covid19 dalam skala nasional. Dalam sistem perangkat lunak ini pengguna dapat melakukan reservasi untuk melakukan vaksin bahkan mengetahui mengenai perkembangan virus covid 19 ini beserta perkembangan vaksin untuk mencegahnya
+
+## TIM
+- Akhdan Musyaffa Firdaus 		1197050010 
+- Aliman Triyas Farid			1197050013 
+- Fakhri Faishal Rochdiana 		1197050040 
+- Haruna Elfathin 			    1197050048 
+- Reyhan Afrizal 			    1197050114
+
+# RPL-B, Informatika UIN Sunan Gunung Djati Bandung
+### Dosen Pengampu : Ichsan Taufik S.T.,M.T
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -6,6 +22,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+
 
 ## About Laravel
 
