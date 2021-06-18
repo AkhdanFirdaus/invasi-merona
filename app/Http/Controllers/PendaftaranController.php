@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\JadwalPemeriksaan;
-use App\Models\JadwalRumahSakit;
 use App\Models\Pendaftaran;
 use App\Models\Penyakit;
 use App\Models\RumahSakit;
 use App\Models\Vaksin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use \Carbon\Carbon;
 
