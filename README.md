@@ -13,6 +13,36 @@ Invasi Merona adalah sistem perangkat lunak informasi vaksin Indonesia melawan c
 # RPL-B, Informatika UIN Sunan Gunung Djati Bandung
 ### Dosen Pengampu : Ichsan Taufik S.T.,M.T
 
+# Beberapa Screenshoots Aplikasi
+
+Halaman Utama
+![Halaman Utama](./public/img/screenshoots/home.png)
+
+Halaman Tentang Kami
+![Halaman Tentang Kami](./public/img/screenshoots/about-us.png)
+
+Halaman Artikel
+![Halaman Artikel](./public/img/screenshoots/artikel.png)
+
+Halaman Vaksin
+![Halaman Vaksin](./public/img/screenshoots/vaksin.png)
+
+Halaman Login
+![Halaman Login](./public/img/screenshoots/login.png)
+
+Halaman Sidebar
+![Halaman Sidebar](./public/img/screenshoots/sidebar-menu.png)
+
+Halaman Artikel
+![Halaman Artikel](./public/img/screenshoots/artikel.png)
+
+Halaman Pendaftaran
+![Halaman Pendaftaran](./public/img/screenshoots/daftar-1.png)
+
+Halaman Berhasil Daftar
+![Halaman Berhasil Daftar](./public/img/screenshoots/daftar-berhasil.png)
+
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
